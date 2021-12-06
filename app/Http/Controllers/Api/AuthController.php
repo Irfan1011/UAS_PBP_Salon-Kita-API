@@ -24,10 +24,6 @@ class AuthController extends Controller
 
         $registrationData['password'] = bcrypt($request->password); //enkripsi password
         $user = User::create($registrationData); //membuat user baru
-
-        $user = Auth::user();
-        $token = $user->createToken('Authentication Token')->accessToken; //generate token
-        
         return response([
             'message' => 'Register Success',
             'user' => $user
@@ -47,6 +43,9 @@ class AuthController extends Controller
         
         if(!Auth::attempt($loginData))
             return response(['message' => 'Invalid Credentials'], 401); //return error gagal login
+
+        $user = Auth::user();
+        $token = $user->createToken('Authentication Token')->accessToken; //generate token
 
         return response([
             'message' => 'Authenticated',
