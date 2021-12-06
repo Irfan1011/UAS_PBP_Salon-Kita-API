@@ -27,6 +27,11 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::post('cart', 'Api\CartController@store');
     Route::put('cart/{id}', 'Api\CartController@update');
     Route::delete('cart/{id}', 'Api\CartController@destroy');
+    Route::get('history', 'Api\HistoryController@index');
+    Route::get('history/{id}', 'Api\HistoryController@show');
+    Route::post('history', 'Api\HistoryController@store');
+    Route::put('history/{id}', 'Api\HistoryController@update');
+    Route::delete('history/{id}', 'Api\HistoryController@destroy');
 });
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
