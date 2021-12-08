@@ -15,10 +15,11 @@ class CreateBookingsTable extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('phone_number', 12);
-            $table->date('date');
-            $table->integer('time');
+            $table->string('email');
+            $table->string('nama');
+            $table->string('notelp');
+            $table->integer('jambook');
+            $table->string('tanggal');
             $table->timestamps();
         });
     }

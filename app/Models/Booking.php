@@ -11,7 +11,7 @@ class Booking extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'phone_number', 'date', 'time'
+        'email', 'nama', 'notelp', 'jambook', 'tanggal'
     ];
 
     public function getCreatedAtAttribute()

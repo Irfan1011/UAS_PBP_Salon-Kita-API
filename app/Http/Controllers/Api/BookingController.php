@@ -51,10 +51,11 @@ class BookingController extends Controller
     {
         $storeData = $request->all(); //mengambil semua input dari api client
         $validate = Validator::make($storeData, [
-            'name' => 'required|max:60',
-            'phone_number' => 'required|digits_between:10,13|numeric|regex:/(08)[0-9]{1}/',
-            'date' => 'required',
-            'time' => 'required|numeric'
+            'email' => 'required|email:rfc,dns|unique:bookings',
+            'nama' => 'required|max:60',
+            'notelp' => 'required|digits_between:10,13|numeric|regex:/(08)[0-9]{1}/',
+            'tanggal' => 'required',
+            'jambook' => 'required|numeric'
         ]); //membuat rule validasi input
 
         if($validate->fails())
@@ -105,10 +106,11 @@ class BookingController extends Controller
 
         $updateData = $request->all(); //mengambil semua input dari api client
         $validate = Validator::make($updateData, [
-            'name' => 'required|max:60',
-            'phone_number' => 'required|digits_between:10,13|numeric|regex:/(08)[0-9]{1}/',
-            'date' => 'required',
-            'time' => 'required|numeric'
+            'email' => 'required|email:rfc,dns',
+            'nama' => 'required|max:60',
+            'notelp' => 'required|digits_between:10,13|numeric|regex:/(08)[0-9]{1}/',
+            'tanggal' => 'required',
+            'jambook' => 'required|numeric'
         ]); //membuat rule validasi 
 
         if($validate->fails())
